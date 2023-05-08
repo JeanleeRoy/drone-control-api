@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { globSync } from "glob";
-// import { readdirSync } from "fs";
 
 const PATH_ROUTER = `${__dirname}`;
 const router = Router();
@@ -10,23 +9,16 @@ const cleanFileName = (fileName: string) => {
   return file;
 };
 
-// get all routes from files with .controller. in their name
-const routes = globSync(PATH_ROUTER + "/**/*.controller.*");
+// get all routes from router files
+
+const routes = globSync(PATH_ROUTER + "/**/*-router.*");
 
 routes.forEach((filePath) => {
+  console.log(`Loafing routes from ${filePath.split("/").pop()}`);
   const cleanName = cleanFileName(filePath);
   import(cleanName).then((moduleRouter) => {
     router.use("", moduleRouter.default);
   });
 });
-
-/*readdirSync(PATH_ROUTER).filter((fileName) => {
-  const cleanName = cleanFileName(fileName);
-  if (cleanName !== "index") {
-    import(`./${cleanName}`).then((moduleRouter) => {
-      router.use("", moduleRouter.default);
-    });
-  }
-});*/
 
 export { router };
