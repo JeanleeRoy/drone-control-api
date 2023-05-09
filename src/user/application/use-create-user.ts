@@ -1,7 +1,7 @@
 import { User } from "../domain/user-entity";
 import { UserRepository } from "../domain/user-repository";
 
-interface CreateUserProps {
+export interface CreateUserProps {
   name: string;
   email: string;
   password: string;

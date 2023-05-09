@@ -5,7 +5,7 @@ const MOCK_USERS: User[] = [
   {
     name: "Jeanlee",
     description: "hola",
-    uuid: "000-000",
+    uuid: "30cb9020-ee89-11ed-a05b-0242ac120003",
     email: "user@email.com",
     password: "123456",
   },
