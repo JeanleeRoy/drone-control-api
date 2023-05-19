@@ -27,6 +27,7 @@
     "@types/express": "^4.17.17",
     "@types/glob": "^8.1.0",
     "@types/jsonwebtoken": "^9.0.2",
-    "@types/mongoose": "^5.11.97"
+    "@types/mongoose": "^5.11.97",
+    "tsconfig-paths": "^4.2.0"
   }
 }

@@ -11,10 +11,10 @@ export class Controller<T = unknown, R = unknown> {
 
   constructor(route: string, handler: ControllerHandler<T, R>) {
     this.route = route;
-    this.handler = this.#buildHandler(handler);
+    this.handler = this.buildHandler(handler);
   }
 
-  #buildHandler(handler: ControllerHandler<T, R>) {
+  private buildHandler(handler: ControllerHandler<T, R>) {
     return (req: Request, res: Response) => {
       const data: T = req.body as T;
       handler({ data, req, res })

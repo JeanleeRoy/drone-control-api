@@ -1,4 +1,4 @@
-import { UserUseCases } from "../../application";
+import { UserUseCases } from "~/user/application";
 import { MockUserRepository } from "../repository/mock-user-repository";
 
 // Repositories

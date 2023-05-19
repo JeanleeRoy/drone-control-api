@@ -1,4 +1,4 @@
-import { User } from "../../domain/user-entity";
+import { User } from "~/user/domain/user-entity";
 import { userUseCases } from "./dependecies";
 import { UserResponse } from "./types";
 

@@ -1,5 +1,5 @@
-import { Controller } from "../../../../shared/infrastructure/controller";
-import { ControllerHandler } from "../../../../shared/infrastructure/types";
+import { Controller } from "~/shared/infrastructure/controller";
+import { ControllerHandler } from "~/shared/infrastructure/types";
 import { RegisterUserRequest, UserResponse } from "../types";
 import { registerUserService } from "../user-services";
 import Joi from "joi";
