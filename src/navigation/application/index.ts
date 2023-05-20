@@ -1,4 +1,3 @@
-import { DroneRepository } from "~/drone/domain/drone-repository";
 import { PositionRepository } from "../domain/position-repository";
 import { NavigationRepository } from "../domain/navigation-repository";
 import { useCreateNavigation } from "./use-create-navigation";
