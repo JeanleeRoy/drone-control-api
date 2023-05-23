@@ -14,8 +14,8 @@ app.use(getRouter(__dirname));
 
 configConnections().then(() => {
   console.log("Connections configured!");
-});
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });

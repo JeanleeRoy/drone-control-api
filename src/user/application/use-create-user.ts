@@ -15,6 +15,7 @@ const useCreateUser =
       name,
       email,
       password,
+      role: "user",
       description: "",
       uuid: "c0ce5ac4-ed4c-11ed-a05b-0242ac120003",
     };

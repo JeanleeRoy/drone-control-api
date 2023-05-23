@@ -15,5 +15,11 @@ export interface InternalHandler {
 }
 
 export interface MiddlewareHandler {
-  (req: Request, res: Response, next: NextFunction): Response | void;
+  (req: Request, res: Response, next: NextFunction): Response | void | Promise<Response | void>;
+}
+
+export interface AuthPayload {
+  id: string;
+  email: string;
+  role: string;
 }

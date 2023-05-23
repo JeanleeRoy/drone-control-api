@@ -7,6 +7,7 @@ const MOCK_USERS: User[] = [
     description: "hola",
     uuid: "30cb9020-ee89-11ed-a05b-0242ac120003",
     email: "user@email.com",
+    role: "user",
     password: "123456",
   },
 ];

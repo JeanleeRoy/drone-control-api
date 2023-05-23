@@ -53,4 +53,13 @@ export class Controller<T = unknown, R = unknown> {
     }
     return this;
   }
+
+  pushFrontMiddleware(middleware: MiddlewareHandler | MiddlewareHandler[]) {
+    if (Array.isArray(middleware)) {
+      this.middlewares.unshift(...middleware);
+    } else {
+      this.middlewares.unshift(middleware);
+    }
+    return this;
+  }
 }
