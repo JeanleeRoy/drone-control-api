@@ -1,17 +1,20 @@
 import { NavigationRepository } from "../domain/navigation-repository";
 import { PositionRepository } from "../domain/position-repository";
+import { Position } from "../domain/position";
+import { v4 as uuid } from "uuid";
 
 const makeNewPosition = (navigationId: string, command: string) => {
   return {
-    uuid: "9d5c1479-ebf7-401d-843c-1ba1860c88b2",
+    uuid: uuid(),
     createdAt: new Date().toISOString(),
     navigation: navigationId,
     command: command,
     altitude: "",
     latitude: "",
     longitude: "",
-    closedAt: "",
-  };
+    updatedAt: new Date().toISOString(),
+    status: "pending",
+  } as Position;
 };
 
 const useProcessNavigationCommand =

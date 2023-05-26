@@ -40,7 +40,8 @@ const useDefineNavigationPosition =
     position.latitude = payload.location.latitude;
     position.longitude = payload.location.longitude;
     position.altitude = payload.location.altitude;
-    position.closedAt = new Date().toISOString();
+    position.updatedAt = new Date().toISOString();
+    position.status = "defined";
 
     const new_position = await positionRepository.updatePosition(
       payload.position_id,

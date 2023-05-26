@@ -1,5 +1,6 @@
 import { Navigation } from "../domain/navigation-entitty";
 import { NavigationRepository } from "../domain/navigation-repository";
+import { v4 as uuid } from "uuid";
 
 export interface CreateNavigationProps {
   drone_id: string;
@@ -15,7 +16,7 @@ const useCreateNavigation =
     console.log("[NavigationUseCases] useCreateNavigation");
 
     const navigation: Navigation = {
-      uuid: "uuid",
+      uuid: uuid(),
       name: payload.name || "New navigation",
       createdAt: new Date().toISOString(),
       drone: payload.drone_id,

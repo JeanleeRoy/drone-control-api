@@ -8,8 +8,8 @@ export const sendNavigationCommandService = async (
   const message = `#${navigationId} ${command}`
   await navigationUseCases.sendCommand(message);
   return {
-    uuid: "uuid",
-    createdAt: new Date().toISOString(),
+    respondedAt: new Date().toISOString(),
+    position: "",
     navigation: navigationId,
     command: command,
   };

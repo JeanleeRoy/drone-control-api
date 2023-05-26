@@ -4,8 +4,8 @@ export interface NewCommandRequest {
 }
 
 export interface NewCommandResponse {
-  uuid: string;
-  createdAt: string;
+  respondedAt: string;
+  position: string;
   navigation: string;
   command: string;
 }

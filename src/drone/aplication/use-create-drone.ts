@@ -1,12 +1,13 @@
 import { Drone } from "../domain/drone-entity";
 import { DroneRepository } from "../domain/drone-repository";
+import { v4 as uuid } from "uuid";
 
 export interface CreateDroneProps {
   name: string;
   brand: string;
   registerByUser: string;
   description?: string;
-  image_uri?: string;
+  imageUri?: string;
 }
 
 const useCreateDrone =
@@ -15,7 +16,7 @@ const useCreateDrone =
     name,
     description,
     brand,
-    image_uri,
+    imageUri,
     registerByUser,
   }: CreateDroneProps): Promise<Drone> => {
     console.log("[DroneUseCases] createDrone");
@@ -23,9 +24,9 @@ const useCreateDrone =
       name,
       description: description || "",
       brand,
-      imageUri: image_uri || "",
+      imageUri: imageUri || "",
       registerByUser,
-      uuid: "c0ce5ac4-ed4c-11ed-a05b-0242ac120003",
+      uuid: uuid(),
       users: [registerByUser],
       navigations: [],
     };
