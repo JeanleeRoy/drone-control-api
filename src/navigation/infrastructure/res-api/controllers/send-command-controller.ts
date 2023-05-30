@@ -10,8 +10,9 @@ const handler: ControllerHandler<
   NewCommandRequest,
   NewCommandResponse
 > = async ({ data }) => {
-  const { navigationId, command } = data;
-  return sendNavigationCommandService(navigationId, command);
+  // const { navigationId, command } = data;
+  const { command } = data;
+  return sendNavigationCommandService(command);
 };
 
 const validator = Joi.object<NewCommandRequest>({
