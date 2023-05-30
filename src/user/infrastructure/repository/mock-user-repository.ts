@@ -20,6 +20,13 @@ export class MockUserRepository implements UserRepository {
     return user;
   };
 
+  getUserByEmail = async (email: string): Promise<User | null> => {
+    const user = MOCK_USERS.find((user) => user.email === email);
+    if (!user) return null;
+    
+    return user;
+  };
+
   createUser = async (user: User): Promise<User> => {
     console.log("[MockUserRepository] createUser");
     MOCK_USERS.push(user);

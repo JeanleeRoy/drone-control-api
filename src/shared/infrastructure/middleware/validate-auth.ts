@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes, ReasonPhrases } from "http-status-codes";
-import { verifyToken } from "../helpers/jwt-helper";
-import { AuthPayload } from "../types";
+import { AuthPayload } from "~/shared/domain/auth-entity";
+import JwtProvider from "~/shared/infrastructure/provider/token-jwt";
+
 
 export const validateAuth = async (
   req: Request,
@@ -18,8 +19,8 @@ export const validateAuth = async (
   }
   const token = authorization.split(" ")[1];
 
-  const payload = await verifyToken<AuthPayload>(token);
-  if (!payload?.id || !payload?.email) {
+  const payload = await JwtProvider.verifyToken<AuthPayload>(token);
+  if (!payload?.userId || !payload?.email) {
     return res
       .status(StatusCodes.UNAUTHORIZED)
       .json({ error: "Not authorized" });
