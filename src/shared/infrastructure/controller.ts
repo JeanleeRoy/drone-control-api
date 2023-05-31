@@ -22,7 +22,7 @@ export class Controller<T = unknown, R = unknown> {
           if (response === null) {
             return res
               .status(StatusCodes.NOT_FOUND)
-              .json({ message: ReasonPhrases.NOT_FOUND });
+              .json({ message: "Resource not found" });
           }
           const body = {
             success: true,
@@ -30,11 +30,13 @@ export class Controller<T = unknown, R = unknown> {
           };
           return res.status(StatusCodes.OK).json(body);
         })
-        .catch((error) => {
-          console.error("[Error in controller]", error);
+        .catch((error: Error) => {
+          console.error("[Controller]", error);
           return res
             .status(StatusCodes.INTERNAL_SERVER_ERROR)
-            .json({ error: ReasonPhrases.INTERNAL_SERVER_ERROR });
+            .json({
+              message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+            });
         });
     };
   }

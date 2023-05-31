@@ -1,6 +1,6 @@
 import { User } from "~/user/domain/user-entity";
 import { userUseCases } from "./dependecies";
-import { UserResponse } from "./types";
+import { LoginUserResponse, UserResponse } from "./types";
 
 const getUserResponse = (user: User): UserResponse => ({
   uuid: user.uuid,
@@ -32,4 +32,15 @@ export const getAllUsersService = async (): Promise<UserResponse[]> => {
   const users = await userUseCases.listUsers();
 
   return users.map(getUserResponse);
+};
+
+export const loginUserService = async (
+  email: string,
+  password: string
+): Promise<LoginUserResponse | null> => {
+  const payload = await userUseCases.loginUser(email, password);
+
+  if (!payload) return null;
+
+  return { token: payload.token };
 };

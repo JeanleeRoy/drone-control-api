@@ -13,6 +13,10 @@ const useCreateUser =
   (userRepository: UserRepository, hashProvider: CryptoProvider) =>
   async ({ name, email, password }: CreateUserProps): Promise<User> => {
     console.log("[UserUseCases] createUser");
+
+    const userExists = await userRepository.getUserByEmail(email);
+    if (userExists) throw new Error("User already exists");
+
     const hashPassword = await hashProvider.encode(password);
     const user: User = {
       name,
@@ -27,6 +31,7 @@ const useCreateUser =
       name: newUser.name,
       email: newUser.email,
       uuid: newUser.uuid,
+      // password: newUser.password,
     });
     return newUser;
   };

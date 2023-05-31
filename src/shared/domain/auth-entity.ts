@@ -6,5 +6,6 @@ export interface Auth {
 export interface AuthPayload {
   userId: string;
   email: string;
+  name: string;
   role: string;
 }
