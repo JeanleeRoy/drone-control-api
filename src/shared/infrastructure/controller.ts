@@ -5,12 +5,12 @@ import { Request, Response } from "express";
 import { StatusCodes, ReasonPhrases } from "http-status-codes";
 
 export class Controller<T = unknown, R = unknown> {
-  route: string;
+  route: string[];
   handler: InternalHandler;
   middlewares: MiddlewareHandler[] = [];
 
-  constructor(route: string, handler: ControllerHandler<T, R>) {
-    this.route = route;
+  constructor(route: string | string[], handler: ControllerHandler<T, R>) {
+    this.route = Array.isArray(route) ? route : [route];
     this.handler = this.buildHandler(handler);
   }
 
@@ -32,11 +32,9 @@ export class Controller<T = unknown, R = unknown> {
         })
         .catch((error: Error) => {
           console.error("[Controller]", error);
-          return res
-            .status(StatusCodes.INTERNAL_SERVER_ERROR)
-            .json({
-              message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
-            });
+          return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+          });
         });
     };
   }
