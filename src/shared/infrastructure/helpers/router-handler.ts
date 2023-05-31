@@ -18,10 +18,12 @@ const getRouter = (cwd: string) => {
 
   controlllers.forEach((controller) => {
     console.log(`Loading route ${controller.route}`);
-    if (controller.route.includes("/private/")) {
-      controller.pushFrontMiddleware(validateAuth);
-    }
-    router.post(controller.route, controller.middlewares, controller.handler);
+    controller.route.map((route) => {
+      if (route.includes("/private/")) {
+        controller.pushFrontMiddleware(validateAuth);
+      }
+      router.post(controller.route, controller.middlewares, controller.handler);
+    });
   });
 
   return router;
