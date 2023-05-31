@@ -17,8 +17,8 @@ const getRouter = (cwd: string) => {
   );
 
   controlllers.forEach((controller) => {
-    console.log(`Loading route ${controller.route}`);
     controller.route.map((route) => {
+      console.log(`Loading route ${route}`);
       if (route.includes("/private/")) {
         controller.pushFrontMiddleware(validateAuth);
       }
