@@ -1,6 +1,7 @@
 export interface NewCommandRequest {
   command: string;
-  navigationId: string;
+  test?: boolean;
+  // navigationId: string;
 }
 
 export interface NewCommandResponse {
