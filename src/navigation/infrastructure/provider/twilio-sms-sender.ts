@@ -5,7 +5,7 @@ export class TwilioMessageSender implements MessageSender {
   constructor(private phone: string) {}
   async sendMessage(message: string): Promise<void> {
     console.log("[TwilioMessageSender] sendSms");
-    twilioClinet.messages
+    await twilioClinet.messages
       .create({
         body: message,
         from: process.env.TWILIO_PHONE_NUMBER,

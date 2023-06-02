@@ -29,11 +29,11 @@ export class Controller<T = unknown, R = unknown> {
             success: true,
             ...(response && { data: response }),
           };
-          console.log("[Controller] end\n");
+          console.log("[Controller] end\n\n");
           return res.status(StatusCodes.OK).json(body);
         })
         .catch((error: Error) => {
-          console.error("[Controller]", error, "\n");
+          console.error("[Controller]", error, "\n\n");
           return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
           });
