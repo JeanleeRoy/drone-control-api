@@ -6,7 +6,7 @@ const MOCK_USERS: User[] = [
     name: "Jeanlee",
     description: "hola",
     uuid: "30cb9020-ee89-11ed-a05b-0242ac120003",
-    email: "user@email.com",
+    email: "admin@dronecontrol.com",
     role: "user",
     password: "$2a$10$jdrGdj3EhoLS6Pf9erFsjO/WHWYzAFXrcFHr.kkkKVu2/SYlREPoe", // 123456
   },
