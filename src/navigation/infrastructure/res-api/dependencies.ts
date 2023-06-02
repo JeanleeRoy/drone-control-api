@@ -3,10 +3,15 @@ import { TwilioMessageSender } from "../provider/twilio-sms-sender";
 import * as CONSTANT from "~/shared/infrastructure/constants";
 import { useSendCommand } from "~/navigation/application/use-send-comand";
 import { MockMessageSender } from "../provider/mock-sms-sender";
+import { VonageMessageSender } from "../provider/vonage-sms-sender";
 
 // Providers
 
 export const twilioSmsSender = new TwilioMessageSender(
+  CONSTANT.DRONE_PHONE_NUMBER
+);
+
+export const vonageSmsSender = new VonageMessageSender(
   CONSTANT.DRONE_PHONE_NUMBER
 );
 
