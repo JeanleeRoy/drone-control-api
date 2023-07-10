@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx ts-node dist/src/app.js ",
+    "start": "tsc",
+    "simple:build": "tsc",
+    "simple:start": "node ./dist/application.js",
     "dev": "nodemon src/app.ts"
   },
   "keywords": [],
